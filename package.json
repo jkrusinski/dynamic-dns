@@ -1,0 +1,15 @@
+{
+  "name": "dynamic-dns",
+  "version": "1.0.0",
+  "description": "A dynamic dns program that uses Amazon Route53 and aws-sdk.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://jkrusinski@jkrusinski.pi:/home/jkrusinski/usbdrv/dynamic-dns.git"
+  },
+  "author": "Jerry Krusinski <jkruzr@gmail.com>",
+  "license": "ISC"
+}
