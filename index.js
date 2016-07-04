@@ -41,8 +41,15 @@ var Promise = require('promise');
 var ipify = require('ipify');
 
 // Promise generator - gets current record set value
-function getRecordSetValue(params) {
+function getRecordSetValue() {
     return new Promise(function (fulfill, reject) {
+        
+        var params = {
+            HostedZoneId: config.HostedZone.Id,
+            StartRecordName: config.HostedZone.RecordSet.name,
+            StartRecordType: 'A',
+            MaxItems: '1'
+        };
 
         route53.listResourceRecordSets(params, function (err, data) {
 
@@ -71,17 +78,17 @@ function getPublicIp() {
 }
 
 // Promise generator - update record set with new value
-function updateRecordSetValue(hostedZoneId, domainName, value) {
+function updateRecordSetValue(value) {
     return new Promise(function (fulfill, reject) {
 
         var params = {
-            HostedZoneId: hostedZoneId,
+            HostedZoneId: config.HostedZone.Id,
             ChangeBatch: {
                 Changes: [
                     {
                         Action: 'UPSERT',
                         ResourceRecordSet: {
-                            Name: domainName,
+                            Name: config.HostedZone.RecordSet.name,
                             Type: 'A',
                             TTL: 86400,
                             ResourceRecords: [
@@ -121,17 +128,11 @@ Promise
 
     // catch values for recordSetValue and publicIp and pass along the chain
     .all([
-
-        getRecordSetValue({
-            HostedZoneId: config.HostedZone.Id,
-            StartRecordName: config.HostedZone.RecordSet.name,
-            StartRecordType: 'A',
-            MaxItems: '1'
-        }),
+        
+        getRecordSetValue(), 
         getPublicIp()
-
+        
     ])
-
 
     // compare recordSetValue and publicIp and pass along the chain
     .then(
@@ -183,7 +184,7 @@ Promise
 
             // return Promise to updateRecordSetValue if new IP address
             if (data.updateNeeded) {
-                return updateRecordSetValue(config.HostedZone.Id, config.HostedZone.RecordSet.name, data.publicIp);
+                return updateRecordSetValue(data.publicIp);
             }
 
             else {
