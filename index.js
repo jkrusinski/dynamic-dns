@@ -1,5 +1,16 @@
 var config = require('./config');
 
+// Import and configure aws-sdk
+var AWS = new require('aws-sdk');
+AWS.config.update({
+    accessKeyId: config.AWS.Credentials.AccessKeyId,
+    secretAccessKey: config.AWS.Credentials.SecretAccessKey
+});
+
+// get Route53 Service Object
+var route53 = new AWS.Route53({apiVersion: '2013-04-01'});
+
+// setup logger
 var winston = require('winston');
 winston.emitErrs = true;
 
@@ -23,16 +34,6 @@ var logger = new winston.Logger({
     ],
     exitOnError: false
 });
-
-// Import and configure aws-sdk
-var AWS = new require('aws-sdk');
-AWS.config.update({
-    accessKeyId: config.AWS.Credentials.AccessKeyId,
-    secretAccessKey: config.AWS.Credentials.SecretAccessKey
-});
-
-// get Route53 Service Object
-var route53 = new AWS.Route53({apiVersion: '2013-04-01'});
 
 // import promise library
 var Promise = require('promise');
