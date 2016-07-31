@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://jkrusinski@jkrusinski.pi:/home/jkrusinski/usbdrv/dynamic-dns.git"
+    "url": "https://github.com/jkrusinski/dynamic-dns.git"
   },
   "author": "Jerry Krusinski <jkruzr@gmail.com>",
   "license": "ISC",
