@@ -6,7 +6,7 @@ A simple script that utilizes Node.js to automatically update an Amazon Route53 
 
 - Node.js &amp; NPM
 - A domain name managed with Amazon's Route53
-- A Unix-like system with Cron
+- A Unix-like server with Cron
 
 ###Usage
 
@@ -19,16 +19,22 @@ cd dynamic-dns
 ```
 
 #####Step 2
+Install dependencies with NPM.
+```
+npm install
+```
+
+#####Step 3
 
 Make `exe.sh` an executable.
 ```
 chmod +x exe.sh
 ```
 
-#####Step 3
+#####Step 4
 Add your Record Set information and AWS credentials to the `config-sample.js`. You must have an AWS Access Key ID and Secret Access Key in order to connect to Route53. For more information, check out [Amazon's documentation]. Once all the information is provided, rename `config-sample.js` to `config.js`.
 
-#####Step 4
+#####Step 5
 
 Add the script to your Cron jobs. To edit the crontab file, type `crontab -e`. Add the following line to the end of the file.
 
