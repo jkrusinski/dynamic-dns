@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #Dynamic DNS
 
 A simple script that utilizes Node.js to automatically update an Amazon Route53 Record Set upon a change in IP address. Perfect for small home networks that don't have access to a static IP from their ISP.
@@ -17,6 +16,3 @@ Clone repository to your server.
 ```
 git clone https://github.com/jkrusinski/dynamic-dns.git
 ```
-=======
-#
->>>>>>> 455a2b9a139c5c8121c4f856fc0bdb1d8cd10d7e
