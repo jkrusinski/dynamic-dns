@@ -8,6 +8,9 @@ A simple script that utilizes Node.js and Cron to automatically update an Amazon
 - A domain name managed with Amazon's Route53
 - A Unix-like server with Cron
 
+###Overview
+This configuration uses Cron to compare the server's current IP address to the IP address registered to the specified record set every five minutes. If the addresses do not match, the record set is updated to match the server's current address. A log named `main.log` is created in the root folder with the status of each check. Currently only type A record sets (IPv4) are supported.
+
 ###Usage
 
 #####Step 1
