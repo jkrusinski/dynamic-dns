@@ -1,6 +1,6 @@
 #Dynamic DNS
 
-A simple script that utilizes Node.js to automatically update an Amazon Route53 Record Set upon a change in IP address. Perfect for small home networks that don't have access to a static IP from their ISP.
+A simple script that utilizes Node.js and Cron to automatically update an Amazon Route53 Record Set upon a change in IP address. Perfect for small home networks that don't have access to a static IP from their ISP.
 
 ###Requirements
 
