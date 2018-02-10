@@ -18,7 +18,7 @@ This configuration uses Cron to compare the server's current IP address to the I
 Clone the repository and install dependencies. You may need to run as `sudo` depending on where you want to save the repository. I like to keep mine in `/srv`, which is owned by root.
 ```
 git clone https://github.com/jkrusinski/dynamic-dns.git /srv/dynamic-dns
-cd /srv/dynamic-dns && npm install
+cd /srv/dynamic-dns && sudo npm install
 ```
 
 ##### Step 2
@@ -37,5 +37,5 @@ RECORD_SET_NAME=www.abcs.com
 Add the script to run as a cron job every five minutes, or however frequent you would like. Following the example, the following line is what you would add to the file given by running `crontab -e`:
 
 ```
-*/5 * * * * /srv/dynamic-dns/app.js
+*/5 * * * * /srv/dynamic-dns/dynamic-dns.js
 ```
