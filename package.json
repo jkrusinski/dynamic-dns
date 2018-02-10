@@ -4,7 +4,9 @@
   "description": "An AWS Route53 based Dynamic DNS script",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start": "nodemon index.js",
+    "start:prod": "node index.js",
+    "start:inspect": "nodemon --inspect-brk index.js"
   },
   "repository": {
     "type": "git",
@@ -13,9 +15,15 @@
   "author": "Jerry Krusinski <jkruzr@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.4.4",
-    "ipify": "^1.1.0",
-    "promise": "^7.1.1",
+    "aws-sdk": "^2.192.0",
+    "dotenv": "^5.0.0",
+    "ipify": "^2.0.0",
     "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "nodemon": "^1.14.12"
   }
 }

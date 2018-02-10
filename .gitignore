@@ -7,3 +7,4 @@ node_modules/
 test/
 config.js
 main.log
+.env
