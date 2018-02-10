@@ -18,7 +18,7 @@ AWS.config.update({
 
 const route53 = new AWS.Route53({ apiVersion: '2013-04-01' });
 
-const getRecordSetValue = async () => {
+const getRecordSetValue = () => {
   const params = {
       HostedZoneId: HOSTED_ZONE_ID,
       StartRecordName: RECORD_SET_NAME,
@@ -51,7 +51,7 @@ const updateRecordSetValue = (value) => {
 
 const isValidIp = (ip) => {
   const components = ip.split('.');
-  return components.every(n => !isNaN(n)) || components.length === 4;
+  return components.every(c => !isNaN(c)) && components.length === 4;
 }
 
 Promise
